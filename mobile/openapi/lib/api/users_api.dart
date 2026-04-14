@@ -515,7 +515,12 @@ class UsersApi {
   /// Retrieve a list of all users on the server.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> searchUsersWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [bool] allowTransfer:
+  ///   Filter to users with transfer receiving enabled
+  Future<Response> searchUsersWithHttpInfo({ bool? allowTransfer, }) async {
     // ignore: prefer_const_declarations
     final apiPath = r'/users';
 
@@ -525,6 +530,10 @@ class UsersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (allowTransfer != null) {
+      queryParams.addAll(_queryParams('', 'allowTransfer', allowTransfer));
+    }
 
     const contentTypes = <String>[];
 
@@ -543,8 +552,13 @@ class UsersApi {
   /// Get all users
   ///
   /// Retrieve a list of all users on the server.
-  Future<List<UserResponseDto>?> searchUsers() async {
-    final response = await searchUsersWithHttpInfo();
+  ///
+  /// Parameters:
+  ///
+  /// * [bool] allowTransfer:
+  ///   Filter to users with transfer receiving enabled
+  Future<List<UserResponseDto>?> searchUsers({ bool? allowTransfer, }) async {
+    final response = await searchUsersWithHttpInfo( allowTransfer: allowTransfer, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

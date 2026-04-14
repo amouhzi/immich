@@ -304,6 +304,8 @@ class ApiClient {
           return AssetStackResponseDto.fromJson(value);
         case 'AssetStatsResponseDto':
           return AssetStatsResponseDto.fromJson(value);
+        case 'AssetTransferDto':
+          return AssetTransferDto.fromJson(value);
         case 'AssetTypeEnum':
           return AssetTypeEnumTypeTransformer().decode(value);
         case 'AssetVisibility':
@@ -828,6 +830,10 @@ class ApiClient {
           return TranscodeHWAccelTypeTransformer().decode(value);
         case 'TranscodePolicy':
           return TranscodePolicyTypeTransformer().decode(value);
+        case 'TransferResponse':
+          return TransferResponse.fromJson(value);
+        case 'TransferUpdate':
+          return TransferUpdate.fromJson(value);
         case 'TrashResponseDto':
           return TrashResponseDto.fromJson(value);
         case 'UpdateAlbumDto':

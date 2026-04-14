@@ -25,6 +25,7 @@ class UserPreferencesUpdateDto {
     this.ratings,
     this.sharedLinks,
     this.tags,
+    this.transfer,
   });
 
   ///
@@ -123,6 +124,14 @@ class UserPreferencesUpdateDto {
   ///
   TagsUpdate? tags;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  TransferUpdate? transfer;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is UserPreferencesUpdateDto &&
     other.albums == albums &&
@@ -136,7 +145,8 @@ class UserPreferencesUpdateDto {
     other.purchase == purchase &&
     other.ratings == ratings &&
     other.sharedLinks == sharedLinks &&
-    other.tags == tags;
+    other.tags == tags &&
+    other.transfer == transfer;
 
   @override
   int get hashCode =>
@@ -152,10 +162,11 @@ class UserPreferencesUpdateDto {
     (purchase == null ? 0 : purchase!.hashCode) +
     (ratings == null ? 0 : ratings!.hashCode) +
     (sharedLinks == null ? 0 : sharedLinks!.hashCode) +
-    (tags == null ? 0 : tags!.hashCode);
+    (tags == null ? 0 : tags!.hashCode) +
+    (transfer == null ? 0 : transfer!.hashCode);
 
   @override
-  String toString() => 'UserPreferencesUpdateDto[albums=$albums, avatar=$avatar, cast=$cast, download=$download, emailNotifications=$emailNotifications, folders=$folders, memories=$memories, people=$people, purchase=$purchase, ratings=$ratings, sharedLinks=$sharedLinks, tags=$tags]';
+  String toString() => 'UserPreferencesUpdateDto[albums=$albums, avatar=$avatar, cast=$cast, download=$download, emailNotifications=$emailNotifications, folders=$folders, memories=$memories, people=$people, purchase=$purchase, ratings=$ratings, sharedLinks=$sharedLinks, tags=$tags, transfer=$transfer]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -219,6 +230,11 @@ class UserPreferencesUpdateDto {
     } else {
     //  json[r'tags'] = null;
     }
+    if (this.transfer != null) {
+      json[r'transfer'] = this.transfer;
+    } else {
+    //  json[r'transfer'] = null;
+    }
     return json;
   }
 
@@ -243,6 +259,7 @@ class UserPreferencesUpdateDto {
         ratings: RatingsUpdate.fromJson(json[r'ratings']),
         sharedLinks: SharedLinksUpdate.fromJson(json[r'sharedLinks']),
         tags: TagsUpdate.fromJson(json[r'tags']),
+        transfer: TransferUpdate.fromJson(json[r'transfer']),
       );
     }
     return null;

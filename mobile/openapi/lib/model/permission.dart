@@ -44,6 +44,7 @@ class Permission {
   static const assetPeriodReplace = Permission._(r'asset.replace');
   static const assetPeriodCopy = Permission._(r'asset.copy');
   static const assetPeriodDerive = Permission._(r'asset.derive');
+  static const assetPeriodTransfer = Permission._(r'asset.transfer');
   static const assetPeriodEditPeriodGet = Permission._(r'asset.edit.get');
   static const assetPeriodEditPeriodCreate = Permission._(r'asset.edit.create');
   static const assetPeriodEditPeriodDelete = Permission._(r'asset.edit.delete');
@@ -203,6 +204,7 @@ class Permission {
     assetPeriodReplace,
     assetPeriodCopy,
     assetPeriodDerive,
+    assetPeriodTransfer,
     assetPeriodEditPeriodGet,
     assetPeriodEditPeriodCreate,
     assetPeriodEditPeriodDelete,
@@ -397,6 +399,7 @@ class PermissionTypeTransformer {
         case r'asset.replace': return Permission.assetPeriodReplace;
         case r'asset.copy': return Permission.assetPeriodCopy;
         case r'asset.derive': return Permission.assetPeriodDerive;
+        case r'asset.transfer': return Permission.assetPeriodTransfer;
         case r'asset.edit.get': return Permission.assetPeriodEditPeriodGet;
         case r'asset.edit.create': return Permission.assetPeriodEditPeriodCreate;
         case r'asset.edit.delete': return Permission.assetPeriodEditPeriodDelete;

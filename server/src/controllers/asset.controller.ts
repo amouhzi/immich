@@ -15,6 +15,7 @@ import {
   AssetMetadataUpsertDto,
   AssetStatsDto,
   AssetStatsResponseDto,
+  AssetTransferDto,
   DeviceIdDto,
   RandomAssetsDto,
   UpdateAssetDto,
@@ -99,6 +100,18 @@ export class AssetController {
   })
   deleteAssets(@Auth() auth: AuthDto, @Body() dto: AssetBulkDeleteDto): Promise<void> {
     return this.service.deleteAll(auth, dto);
+  }
+
+  @Post('transfer')
+  @Authenticated({ permission: Permission.AssetTransfer })
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @Endpoint({
+    summary: 'Transfer asset ownership',
+    description: 'Transfer ownership of one or more assets to another user who has enabled receiving transfers.',
+    history: new HistoryBuilder().added('v1').beta('v1'),
+  })
+  transferAssets(@Auth() auth: AuthDto, @Body() dto: AssetTransferDto): Promise<void> {
+    return this.service.transferAssets(auth, dto);
   }
 
   @Get(':id')

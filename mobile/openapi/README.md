@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**removeAssetEdits**](doc//AssetsApi.md#removeassetedits) | **DELETE** /assets/{id}/edits | Remove edits from an existing asset
 *AssetsApi* | [**replaceAsset**](doc//AssetsApi.md#replaceasset) | **PUT** /assets/{id}/original | Replace asset
 *AssetsApi* | [**runAssetJobs**](doc//AssetsApi.md#runassetjobs) | **POST** /assets/jobs | Run an asset job
+*AssetsApi* | [**transferAssets**](doc//AssetsApi.md#transferassets) | **POST** /assets/transfer | Transfer asset ownership
 *AssetsApi* | [**updateAsset**](doc//AssetsApi.md#updateasset) | **PUT** /assets/{id} | Update an asset
 *AssetsApi* | [**updateAssetMetadata**](doc//AssetsApi.md#updateassetmetadata) | **PUT** /assets/{id}/metadata | Update asset metadata
 *AssetsApi* | [**updateAssets**](doc//AssetsApi.md#updateassets) | **PUT** /assets | Update assets
@@ -391,6 +392,7 @@ Class | Method | HTTP request | Description
  - [AssetResponseDto](doc//AssetResponseDto.md)
  - [AssetStackResponseDto](doc//AssetStackResponseDto.md)
  - [AssetStatsResponseDto](doc//AssetStatsResponseDto.md)
+ - [AssetTransferDto](doc//AssetTransferDto.md)
  - [AssetTypeEnum](doc//AssetTypeEnum.md)
  - [AssetVisibility](doc//AssetVisibility.md)
  - [AudioCodec](doc//AudioCodec.md)
@@ -653,6 +655,8 @@ Class | Method | HTTP request | Description
  - [ToneMapping](doc//ToneMapping.md)
  - [TranscodeHWAccel](doc//TranscodeHWAccel.md)
  - [TranscodePolicy](doc//TranscodePolicy.md)
+ - [TransferResponse](doc//TransferResponse.md)
+ - [TransferUpdate](doc//TransferUpdate.md)
  - [TrashResponseDto](doc//TrashResponseDto.md)
  - [UpdateAlbumDto](doc//UpdateAlbumDto.md)
  - [UpdateAlbumUserDto](doc//UpdateAlbumUserDto.md)
