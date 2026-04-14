@@ -1311,6 +1311,54 @@ class AssetsApi {
     }
   }
 
+  /// Transfer asset ownership
+  ///
+  /// Transfer ownership of one or more assets to another user who has enabled receiving transfers.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [AssetTransferDto] assetTransferDto (required):
+  Future<Response> transferAssetsWithHttpInfo(AssetTransferDto assetTransferDto,) async {
+    // ignore: prefer_const_declarations
+    final apiPath = r'/assets/transfer';
+
+    // ignore: prefer_final_locals
+    Object? postBody = assetTransferDto;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      apiPath,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Transfer asset ownership
+  ///
+  /// Transfer ownership of one or more assets to another user who has enabled receiving transfers.
+  ///
+  /// Parameters:
+  ///
+  /// * [AssetTransferDto] assetTransferDto (required):
+  Future<void> transferAssets(AssetTransferDto assetTransferDto,) async {
+    final response = await transferAssetsWithHttpInfo(assetTransferDto,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
   /// Update an asset
   ///
   /// Update information of a specific asset.

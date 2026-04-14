@@ -14,6 +14,7 @@
   import SetProfilePictureAction from '$lib/components/asset-viewer/actions/set-profile-picture-action.svelte';
   import SetStackPrimaryAsset from '$lib/components/asset-viewer/actions/set-stack-primary-asset.svelte';
   import SetVisibilityAction from '$lib/components/asset-viewer/actions/set-visibility-action.svelte';
+  import TransferOwnershipAction from '$lib/components/asset-viewer/actions/transfer-ownership-action.svelte';
   import UnstackAction from '$lib/components/asset-viewer/actions/unstack-action.svelte';
   import LoadingDots from '$lib/components/LoadingDots.svelte';
   import ButtonContextMenu from '$lib/components/shared-components/context-menu/button-context-menu.svelte';
@@ -208,6 +209,10 @@
 
         {#if !asset.isTrashed && isOwner}
           <SetVisibilityAction asset={toTimelineAsset(asset)} {onAction} {preAction} />
+        {/if}
+
+        {#if !asset.isTrashed && isOwner}
+          <TransferOwnershipAction {asset} {onAction} {preAction} />
         {/if}
 
         {#if asset.type === AssetTypeEnum.Video}

@@ -24,6 +24,7 @@ class UserPreferencesResponseDto {
     required this.ratings,
     required this.sharedLinks,
     required this.tags,
+    required this.transfer,
   });
 
   AlbumsResponse albums;
@@ -48,6 +49,8 @@ class UserPreferencesResponseDto {
 
   TagsResponse tags;
 
+  TransferResponse transfer;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is UserPreferencesResponseDto &&
     other.albums == albums &&
@@ -60,7 +63,8 @@ class UserPreferencesResponseDto {
     other.purchase == purchase &&
     other.ratings == ratings &&
     other.sharedLinks == sharedLinks &&
-    other.tags == tags;
+    other.tags == tags &&
+    other.transfer == transfer;
 
   @override
   int get hashCode =>
@@ -75,10 +79,11 @@ class UserPreferencesResponseDto {
     (purchase.hashCode) +
     (ratings.hashCode) +
     (sharedLinks.hashCode) +
-    (tags.hashCode);
+    (tags.hashCode) +
+    (transfer.hashCode);
 
   @override
-  String toString() => 'UserPreferencesResponseDto[albums=$albums, cast=$cast, download=$download, emailNotifications=$emailNotifications, folders=$folders, memories=$memories, people=$people, purchase=$purchase, ratings=$ratings, sharedLinks=$sharedLinks, tags=$tags]';
+  String toString() => 'UserPreferencesResponseDto[albums=$albums, cast=$cast, download=$download, emailNotifications=$emailNotifications, folders=$folders, memories=$memories, people=$people, purchase=$purchase, ratings=$ratings, sharedLinks=$sharedLinks, tags=$tags, transfer=$transfer]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,6 +98,7 @@ class UserPreferencesResponseDto {
       json[r'ratings'] = this.ratings;
       json[r'sharedLinks'] = this.sharedLinks;
       json[r'tags'] = this.tags;
+      json[r'transfer'] = this.transfer;
     return json;
   }
 
@@ -116,6 +122,7 @@ class UserPreferencesResponseDto {
         ratings: RatingsResponse.fromJson(json[r'ratings'])!,
         sharedLinks: SharedLinksResponse.fromJson(json[r'sharedLinks'])!,
         tags: TagsResponse.fromJson(json[r'tags'])!,
+        transfer: TransferResponse.fromJson(json[r'transfer'])!,
       );
     }
     return null;
@@ -174,6 +181,7 @@ class UserPreferencesResponseDto {
     'ratings',
     'sharedLinks',
     'tags',
+    'transfer',
   };
 }
 
